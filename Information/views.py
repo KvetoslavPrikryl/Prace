@@ -136,7 +136,9 @@ def deteteEmployee(request):
     if request.method == "POST":
         delete_employee.delete()
         return HttpResponseRedirect(reverse("index"))
-    return render(request, "Information/deleteEmployee.html")
+    return render(request, "Information/deleteEmployee.html", {
+        "employee" : delete_employee,
+    })
 
 @login_required(login_url="singIn")
 def deleteTrained(request):

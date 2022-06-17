@@ -8,10 +8,13 @@
 {% block content %}
     <a href = "/uvod">Zpátky na úvod.</a>
     <h1>Vymazaní zaměstnance</h1>
-    <p>Opravdu chcete vymazat zaměstnance?</p> 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <button>Vymazat zaměstnance</button>
-    </form>
+    <section class="delete_form">
+        <h3>Opravdu chcete vymazat zaměstnance?</h3> 
+        <h2>{{employee.name}} {{employee.surname}}</h2>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <button>Vymazat zaměstnance</button>
+        </form>
+    </section>
     
 {% endblock%}
