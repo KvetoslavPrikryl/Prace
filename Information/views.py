@@ -201,8 +201,9 @@ def newTrained(request):
     })
 
 ##### Zkouším ######
-"""
 
+
+"""
 traineds = Trained.objects.all()
 employees = Employee.objects.all()
 newTrained = TrainedForm
