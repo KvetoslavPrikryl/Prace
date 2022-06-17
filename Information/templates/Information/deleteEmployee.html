@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block styling %}
+{% endblock %}
+
+{% block content %}
+    <a href = "/uvod">Zpátky na úvod.</a>
+    <h1>Vymazaní zaměstnance</h1>
+    <p>Opravdu chcete vymazat zaměstnance?</p> 
+    <form method="POST" action="">
+        {% csrf_token %}
+        <button>Vymazat zaměstnance</button>
+    </form>
+    
+{% endblock%}

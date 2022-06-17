@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styling %}
+{% endblock %}
+
+{% block content %}
+    <h1>Přihlášení</h1>
+    <form action="" method="POST" class="logIn">
+        {% csrf_token %}
+        <label for="username">Zadejte přihlašovací jméno:</label>
+        <input type="text" id="username" name="username">  
+        <label for="email">Zadejte e-mail:</label>
+        <input type="email" id="email" name="email"> 
+        <label for="password1">Zadejte heslo:</label>
+        <input type="password" id="password1" name="password1"> 
+
+        <button>Odeslat</button>
+    </form>
+{% endblock %}

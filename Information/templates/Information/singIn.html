@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styling %}
+{% endblock %}
+
+{% block content %}
+    <h1>Přihlášení</h1>
+    <div class="logIn">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td><label for="username">Zadejte přihlašovací jméno:</label></td>
+                    <td><input type="text" id="username" name="username" placeholder = "Zadejte svoje jméno:"></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Zadejte heslo:</label></td>
+                    <td><input type="password" id="password" name="password" placeholder = "Zadejte heslo"></td>
+                </tr>
+                <td>
+                    {% for message in messages%}
+                        {{message}}
+                    {% endfor%}
+                </td>
+                <td>
+                    <button>Přihlásit</button>
+                </td>
+            </table>
+        </form>
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,225 @@
+@import "mixins";
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    background: url(../IMG/Background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-size: cover;
+}
+a{
+    text-decoration: none;
+}
+input{
+    border-radius: 20px;
+    padding: 5px;
+    outline: none;
+}
+h1{
+    padding-top: 2%;
+    text-align: center;
+    color: rgb(72, 72, 240);
+}
+h2{
+    margin-bottom: 1%;
+}
+p{
+    font-size: 17px;
+}
+button{
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(98, 230, 66);
+    font-size: 15px;
+    padding: 7px;
+    box-shadow: 1px 1px 5px black;
+}
+/***** DELETE EMPLOYEE *****/
+.delete_employee{
+    text-align: right;
+}
+.delete_form{
+    text-align: center;
+    button{
+        margin-top: 20px;
+    }
+}
+/***** HEADER *****/
+header{
+    width: 100%;
+    height: 50px;
+    float: left;
+    margin-bottom: 3%;
+    background: linear-gradient(100deg,rgb(103, 226, 248), rgb(60, 63, 233));
+    .user_list{
+        padding-right: 5%;
+        float: right;
+        display: flex;
+        p{
+            width: 200px;
+            text-align: center;
+            margin-top: 5%;
+            color: white;
+        }
+        .logOff{
+            color: white;
+            text-decoration: none;
+            width: 100px;
+            margin-top: 5%;
+        }
+    }
+}
+
+.contents{
+    margin: 0 5%;
+}
+/***** SING IN *****/
+.logIn{
+    margin: 7% auto;
+    form{
+        border: 1px solid black;
+        width: 40%;
+        margin: auto;
+        padding:2%;
+        border-radius: 5px;
+        input{
+            border:none;
+            border-bottom: 1px solid black;
+            box-shadow: -2px -2px 7px black;
+        }
+        td{
+            text-align: center;
+            padding: 2%;
+        }
+    }
+}
+/***** INDEX *****/
+.search_bar{
+    display: flex;
+    .search_engine{
+        margin: 5% auto;
+        border: 1px solid black;
+        width: 500px;
+        height: 100px;
+        text-align: center;
+        padding: 10px;
+        box-shadow: 2px 2px 7px black ;
+        form{
+            margin-top: 15px;
+        }
+    }
+    .list_of_employees{
+        margin: 5% auto;
+        width:500px;
+        border: 1px solid black;
+        padding: 15px;
+        box-shadow: -2px -2px 5px black;
+        h2{
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        table{
+            @include center;
+            display: none;
+            @include table_form;
+            .table_num_card{
+                cursor: pointer;
+            }
+        }
+    }
+}
+/***** EMPLOYEE *****/
+.storage_report{
+    width: 100%;
+    text-align: center;
+}
+.employee{
+    width: 700px;
+    display: flex;
+    margin: 3% auto;
+    .employee_name_card{
+        width: 50%;
+        text-align: center;
+    }
+}
+.employee_text{
+    padding: 1%;
+    table{
+        width: 100%;
+        h3{
+            margin-bottom: 10px;
+        }
+        .edit_comment{
+            display: block;
+        }
+        .edit_merit{
+            display: block;
+        }
+        .new_comment{
+            display: none;
+        }
+        .new_merit{
+            display: none;
+        }
+        .send_edits{
+            display: none;
+        }
+    }
+}
+hr{
+    margin: 10px 0;
+}
+td{
+    text-align: center;
+    padding: 5px 10px;
+}
+label{
+    font-size: 20px;
+}
+textarea{
+    margin-top: 10px;
+    font-size: 15px;
+    width: 100%;
+}
+.butt{
+    margin-top: 10px;
+    @include center;
+}
+/***** FOOTER *****/
+footer{
+    width:100%;
+    height: 100px;
+}
+/***** NEW EMPLOYEE *****/
+.new_employee{
+    padding-top: 75px;
+}
+.fomr_new_employee{
+    margin-top: 20px;
+    text-align: center;
+    padding: 20px;
+    table{
+        @include center;
+        border: 1px solid black;
+        width: 40%;
+    }
+}
+/***** Trained *****/
+@include table;
+.add_remove_trained{
+    width: 100%;
+    margin-top: 20px;
+    .add_trained{
+        width: 50%;
+        display: none;
+    }
+    .remove_trained{
+        float: right;
+        text-align: right;
+    }
+}

@@ -1,0 +1,324 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: url(../IMG/Background.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-size: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  border-radius: 20px;
+  padding: 5px;
+  outline: none;
+}
+
+h1 {
+  padding-top: 2%;
+  text-align: center;
+  color: #4848f0;
+}
+
+h2 {
+  margin-bottom: 1%;
+}
+
+p {
+  font-size: 17px;
+}
+
+button {
+  border-radius: 10px;
+  border: none;
+  background-color: #62e642;
+  font-size: 15px;
+  padding: 7px;
+  -webkit-box-shadow: 1px 1px 5px black;
+          box-shadow: 1px 1px 5px black;
+}
+
+/***** DELETE EMPLOYEE *****/
+.delete_employee {
+  text-align: right;
+}
+
+.delete_form {
+  text-align: center;
+}
+
+.delete_form button {
+  margin-top: 20px;
+}
+
+/***** HEADER *****/
+header {
+  width: 100%;
+  height: 50px;
+  float: left;
+  margin-bottom: 3%;
+  background: linear-gradient(100deg, #67e2f8, #3c3fe9);
+}
+
+header .user_list {
+  padding-right: 5%;
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .user_list p {
+  width: 200px;
+  text-align: center;
+  margin-top: 5%;
+  color: white;
+}
+
+header .user_list .logOff {
+  color: white;
+  text-decoration: none;
+  width: 100px;
+  margin-top: 5%;
+}
+
+.contents {
+  margin: 0 5%;
+}
+
+/***** SING IN *****/
+.logIn {
+  margin: 7% auto;
+}
+
+.logIn form {
+  border: 1px solid black;
+  width: 40%;
+  margin: auto;
+  padding: 2%;
+  border-radius: 5px;
+}
+
+.logIn form input {
+  border: none;
+  border-bottom: 1px solid black;
+  -webkit-box-shadow: -2px -2px 7px black;
+          box-shadow: -2px -2px 7px black;
+}
+
+.logIn form td {
+  text-align: center;
+  padding: 2%;
+}
+
+/***** INDEX *****/
+.search_bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.search_bar .search_engine {
+  margin: 5% auto;
+  border: 1px solid black;
+  width: 500px;
+  height: 100px;
+  text-align: center;
+  padding: 10px;
+  -webkit-box-shadow: 2px 2px 7px black;
+          box-shadow: 2px 2px 7px black;
+}
+
+.search_bar .search_engine form {
+  margin-top: 15px;
+}
+
+.search_bar .list_of_employees {
+  margin: 5% auto;
+  width: 500px;
+  border: 1px solid black;
+  padding: 15px;
+  -webkit-box-shadow: -2px -2px 5px black;
+          box-shadow: -2px -2px 5px black;
+}
+
+.search_bar .list_of_employees h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.search_bar .list_of_employees table {
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: none;
+}
+
+.search_bar .list_of_employees table input {
+  border-radius: 20px;
+  padding: 5px;
+  outline: none;
+  border: 1px solid black;
+}
+
+.search_bar .list_of_employees table button {
+  border-radius: 10px;
+  border: 1px solid #09ff00;
+  background-color: #62e642;
+  font-size: 15px;
+  padding: 7px;
+  -webkit-box-shadow: 1px 1px 5px black;
+          box-shadow: 1px 1px 5px black;
+  margin-left: 10px;
+}
+
+.search_bar .list_of_employees table .table_num_card {
+  cursor: pointer;
+}
+
+/***** EMPLOYEE *****/
+.storage_report {
+  width: 100%;
+  text-align: center;
+}
+
+.employee {
+  width: 700px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 3% auto;
+}
+
+.employee .employee_name_card {
+  width: 50%;
+  text-align: center;
+}
+
+.employee_text {
+  padding: 1%;
+}
+
+.employee_text table {
+  width: 100%;
+}
+
+.employee_text table h3 {
+  margin-bottom: 10px;
+}
+
+.employee_text table .edit_comment {
+  display: block;
+}
+
+.employee_text table .edit_merit {
+  display: block;
+}
+
+.employee_text table .new_comment {
+  display: none;
+}
+
+.employee_text table .new_merit {
+  display: none;
+}
+
+.employee_text table .send_edits {
+  display: none;
+}
+
+hr {
+  margin: 10px 0;
+}
+
+td {
+  text-align: center;
+  padding: 5px 10px;
+}
+
+label {
+  font-size: 20px;
+}
+
+textarea {
+  margin-top: 10px;
+  font-size: 15px;
+  width: 100%;
+}
+
+.butt {
+  margin-top: 10px;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+/***** FOOTER *****/
+footer {
+  width: 100%;
+  height: 100px;
+}
+
+/***** NEW EMPLOYEE *****/
+.new_employee {
+  padding-top: 75px;
+}
+
+.fomr_new_employee {
+  margin-top: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+.fomr_new_employee table {
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border: 1px solid black;
+  width: 40%;
+}
+
+/***** Trained *****/
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 100%;
+}
+
+table th {
+  padding: 1%;
+  border: 1px solid black;
+}
+
+table td {
+  text-align: center;
+  padding: 2%;
+  border: 1px solid black;
+  width: 10%;
+}
+
+.add_remove_trained {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.add_remove_trained .add_trained {
+  width: 50%;
+  display: none;
+}
+
+.add_remove_trained .remove_trained {
+  float: right;
+  text-align: right;
+}
+/*# sourceMappingURL=style.css.map */

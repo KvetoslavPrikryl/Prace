@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styling %}
+{% endblock %}
+
+{% block content %}
+    <div class="new_employee">
+
+        <a href = "/uvod">Zpátky na úvod.</a>
+        
+        <h1>Přidání nového zaměstnance: </h1>
+        <form class="fomr_new_employee" action="" method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>
+                        {{newEmployee.name.label_tag}}
+                    </td>
+                    <td>
+                        {{newEmployee.name}}
+                        {{newEmployee.surname.errors}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{newEmployee.surname.label_tag}}
+                    </td>
+                    <td>
+                        {{newEmployee.surname}}
+                        {{newEmployee.surname.errors}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{newEmployee.card.label_tag}}
+                    </td>
+                    <td>
+                        <div id="card">{{newEmployee.card}}</div>
+                        {{newEmployee.card.errors}}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="butt">Vytvořit nového zaměstnance</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    
+{% endblock %}
+{% block scripts %}
+    <script src="{% static "Scripts/new.js" %}"></script>
+{% endblock %}

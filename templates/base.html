@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "Styles/style.css" %}">
+    <scripts src="{% static "Scripts/jquery-3.6.0.js"%}"></scripts>
+    <scripts src="{% static "Scripts/script.js"%}"></scripts>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="user_list">
+            <p>Vítej: {{request.user}}</p>
+            <a href= "{% url "logOut"%}" class="logOff">Odhlásit</a>
+        </div>
+    </header>
+    <main class="contents">
+        <div class="storage_report">
+            {% for message in messages%}
+                {{message}}
+            {% endfor%}
+        </div>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+    <footer>
+            
+    </footer>
+    {% block scripts %}
+        
+    {% endblock %}
+</body>
+</html>

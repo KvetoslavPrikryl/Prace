@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styling %}
+{% endblock %}
+
+
+{% block content %}
+
+    <a href="/uvod">Zpátky na úvod.</a>
+
+    <h1>Informace o zaměstnanci.</h1>
+
+    <div class="employee">
+        <h2 class="employee_name_card">Jméno: {{name}} {{surname}}</h2>  
+        <h2 class="employee_name_card">Číslo karty: {{card}}</h2>
+    </div>
+
+    <hr>
+
+    <div class="employee_text">
+        <table>
+            <tr>
+                <td><h3>Poznámky k zaměstnanci:</h3></td>
+                <td><h3>Klady zaměstnance:</h3></td>
+            </tr>
+            <tr>
+                <td>
+                    <p>{{comment}}</p>
+                </td>
+                <td>
+                    <p>{{merit}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="edit_comment" id="butt_edit_comment">Upravit</button>
+                </td>
+                <td>
+                    <button class="edit_merit" id="butt_edit_merit">Upravit</button>
+                </td>
+            </tr>
+            <form action="" method="POST" class="comment_form">
+                {% csrf_token %}
+                <tr>
+                    <td>
+                        <div class = "new_comment" id="new_comment">
+                            <label for="newComment" class="comment_label">Upravit poznámky k zaměstnanci:</label><br>
+                            <textarea type="text" id="newComment" name="newComment" rows="10" cols="50">{{comment}}</textarea>       
+                        </div>
+                    </td>
+                    <td>
+                        <div class = "new_merit" id="new_merit">
+                            <label for="newMerit" class="comment_label">Upravit klady zaměstnance:</label><br>
+                            <textarea type="text" id="newMerit" name="newMerit" rows="10" cols="50">{{merit}}</textarea>    
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="butt send_edits" id="send_edits">Odeslat úpravy</button>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </div>
+
+    <hr>
+
+    <div class="delete_employee">
+        <a href="/vymazat_zamestnance">Vymazat zaměstnance</a>
+    </div>
+
+    <div class = "trained">
+        <h3>Absolvovaná školení:</h3>
+        {% for trained_name in traineds%}
+            <p>{{trained_name}}</p>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static "Scripts/employee.js" %}"></script>
+{% endblock %}
+    
+
+    
+            
+
+    
