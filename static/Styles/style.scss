@@ -130,6 +130,10 @@ header{
             .table_num_card{
                 cursor: pointer;
             }
+            .button_close_list{
+                @include center;
+                width: 30%;
+            }
         }
     }
 }
@@ -171,6 +175,9 @@ header{
         }
     }
 }
+.trained{
+    width:50%;
+}
 hr{
     margin: 10px 0;
 }
@@ -210,16 +217,7 @@ footer{
     }
 }
 /***** Trained *****/
-@include table;
-.add_remove_trained{
-    width: 100%;
-    margin-top: 20px;
-    .add_trained{
-        width: 50%;
-        display: none;
-    }
-    .remove_trained{
-        float: right;
-        text-align: right;
-    }
+.delete_trained_table{
+    @include center;
+    
 }

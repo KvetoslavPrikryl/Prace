@@ -7,33 +7,35 @@
 {% block content %}
     <a href = "/uvod">Zpátky na úvod.</a>
     <h1> Tabulka školení zaměstnanců</h1>
-    <table>
-        <tr>
-            <th>Název školení:</th>
-            <br>
-            {% for trained in traineds%}
-                <th>{{trained }}</th>
-            {% endfor %}
-        </tr>
-        <tr>
+    <div class="table_employees_traineds">
+        <table>
             <tr>
-                {% for key, value in employees_traineds.items %}
-                <tr>
-                    <td>
-                        {% for employee in employees%}
-                            {% if key == employee.card%}
-                                <div>{{employee.name}} {{employee.surname}}</div>
-                            {% endif %}
-                        {% endfor %}
-                    </td>
-                    {% for val in value%}
-                        <td>{{val}}</td>
-                    {% endfor%}
-                </tr>
+                <th>Název školení:</th>
+                <br>
+                {% for trained in traineds%}
+                    <th>{{trained }}</th>
                 {% endfor %}
             </tr>
-        </tr>
-    </table>
+            <tr>
+                <tr>
+                    {% for key, value in employees_traineds.items %}
+                    <tr>
+                        <td>
+                            {% for employee in employees%}
+                                {% if key == employee.card%}
+                                    <div>{{employee.name}} {{employee.surname}}</div>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        {% for val in value%}
+                            <td>{{val}}</td>
+                        {% endfor%}
+                    </tr>
+                    {% endfor %}
+                </tr>
+            </tr>
+        </table>
+    </div>
 
     <hr>
 

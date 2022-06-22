@@ -55,3 +55,11 @@ class TrainedForm(forms.ModelForm):
                 "max_lenght" : "Bohužel jsi přesáhl maximální limit povolenách znaků!"
             }
         }
+
+class AddTrainedForm(forms.ModelForm):
+    class Meta:
+        model = Employee
+        fields = "trained",
+        labels = {
+            "name" : "Název školení"
+        }

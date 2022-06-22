@@ -21,15 +21,21 @@
     <div class="employee_text">
         <table>
             <tr>
-                <td><h3>Poznámky k zaměstnanci:</h3></td>
-                <td><h3>Klady zaměstnance:</h3></td>
+                <th>Poznámky k zaměstnanci:</th>
+                <th>Klady zaměstnance:</th>
+                <th>Absolvovaná školení:</th>
             </tr>
             <tr>
                 <td>
-                    <p>{{comment}}</p>
+                    {{comment}}
                 </td>
                 <td>
-                    <p>{{merit}}</p>
+                    {{merit}}
+                </td>
+                <td>
+                    {% for trained in employee_traineds %}
+                        {{trained}}<br>
+                    {% endfor %}
                 </td>
             </tr>
             <tr>
@@ -38,6 +44,9 @@
                 </td>
                 <td>
                     <button class="edit_merit" id="butt_edit_merit">Upravit</button>
+                </td>
+                <td>
+                    <button class="aadTrained" id="butt_add_trained">Upravit</button>
                 </td>
             </tr>
             <form action="" method="POST" class="comment_form">
@@ -55,9 +64,18 @@
                             <textarea type="text" id="newMerit" name="newMerit" rows="10" cols="50">{{merit}}</textarea>    
                         </div>
                     </td>
+                    <td>
+                        <div class="add_trained" id="add_trained">
+                            {% for trained in trainedsAll %}
+                               <div id="name_trained">{{trained}}</div>
+                            {% endfor %}
+                            <label for="addTrained">Přidat školení:</label>
+                            <input type="text" name="addTrained" id="addTrained">
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="3">
                         <button class="butt send_edits" id="send_edits">Odeslat úpravy</button>
                     </td>
                 </tr>
@@ -71,12 +89,6 @@
         <a href="/vymazat_zamestnance">Vymazat zaměstnance</a>
     </div>
 
-    <div class = "trained">
-        <h3>Absolvovaná školení:</h3>
-        {% for trained_name in traineds%}
-            <p>{{trained_name}}</p>
-        {% endfor %}
-    </div>
 {% endblock %}
 
 {% block scripts %}

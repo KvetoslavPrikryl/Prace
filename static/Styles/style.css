@@ -173,7 +173,7 @@ header .user_list .logOff {
 
 .search_bar .list_of_employees table button {
   border-radius: 10px;
-  border: 1px solid #09ff00;
+  border: none;
   background-color: #62e642;
   font-size: 15px;
   padding: 7px;
@@ -184,6 +184,13 @@ header .user_list .logOff {
 
 .search_bar .list_of_employees table .table_num_card {
   cursor: pointer;
+}
+
+.search_bar .list_of_employees table .button_close_list {
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 30%;
 }
 
 /***** EMPLOYEE *****/
@@ -235,6 +242,10 @@ header .user_list .logOff {
 
 .employee_text table .send_edits {
   display: none;
+}
+
+.trained {
+  width: 50%;
 }
 
 hr {
@@ -289,36 +300,9 @@ footer {
 }
 
 /***** Trained *****/
-table {
-  border-collapse: collapse;
-  border: 1px solid black;
-  width: 100%;
-}
-
-table th {
-  padding: 1%;
-  border: 1px solid black;
-}
-
-table td {
-  text-align: center;
-  padding: 2%;
-  border: 1px solid black;
-  width: 10%;
-}
-
-.add_remove_trained {
-  width: 100%;
-  margin-top: 20px;
-}
-
-.add_remove_trained .add_trained {
-  width: 50%;
-  display: none;
-}
-
-.add_remove_trained .remove_trained {
-  float: right;
-  text-align: right;
+.delete_trained_table {
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 /*# sourceMappingURL=style.css.map */

@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from .models import Employee, Trained
-from .forms import EmployeeForm, TrainedForm, InfoEmployeeForm
+from .forms import EmployeeForm, TrainedForm, AddTrainedForm
 
 myData = Employee.objects.all()
 traineds = Trained.objects.all()
@@ -75,7 +75,8 @@ def index(request):
 
 @login_required(login_url="singIn")
 def information(request): 
-
+    addTrained = AddTrainedForm
+    trainedsAll = Trained.objects.all()
     employee = Employee.objects.get(card = cardNumber)
     employeeTraineds = Trained.objects.filter(employee__card = cardNumber)
     trained = []
@@ -87,10 +88,10 @@ def information(request):
 
         newComment = request.POST["newComment"]
         employee.info = newComment
-        employee.save()
 
         newMerit = request.POST["newMerit"]
         employee.merit = newMerit
+
         employee.save()
 
         messages.success(request, "Informace byly úspěšně uloženy. :)")
@@ -102,7 +103,8 @@ def information(request):
         "card": employee.card,
         "merit" : employee.merit,
         "comment" : employee.info,
-        "traineds" : trained,
+        "employee_traineds" : trained,
+        "trainedsAll" : trainedsAll,
     })
 
 @login_required(login_url="singIn")
@@ -147,7 +149,7 @@ def deleteTrained(request):
         delete = Trained.objects.get(name = name_trained)
         delete.delete()
         messages.success(request, f"Školení {name_trained} bylo vymazáno.")
-        return HttpResponseRedirect(reverse("index"))
+        return HttpResponseRedirect(reverse("trained"))
     return render(request, "Information/deleteTrained.html",{
         "trainedsAll" : traineds,
     })
@@ -202,38 +204,5 @@ def newTrained(request):
 
 ##### Zkouším ######
 
-
 """
-traineds = Trained.objects.all()
-employees = Employee.objects.all()
-newTrained = TrainedForm
-
-TrainedAllName = []
-employees_traineds = {}
-data = {}
-
-for trAll in traineds:
-    TrainedAllName.append(trAll.name)
-
-for employee in employees:
-    nameTraineds = Trained.objects.filter(employee__card = employee.card)
-    employeeTraineds = []
-    cislo = 0
-    for name in nameTraineds:
-        name = str(name.name)
-        while cislo < len(TrainedAllName):
-            if name == TrainedAllName[cislo]:
-                employeeTraineds.append(name)
-                cislo += 1
-                break
-            else:
-                employeeTraineds.append("X")
-                cislo += 1
-
-    while len(employeeTraineds) < len(TrainedAllName):
-        employeeTraineds.append("X")
-
-    employees_traineds[employee.card] = employeeTraineds
-    
-print(employees_traineds)
 """
