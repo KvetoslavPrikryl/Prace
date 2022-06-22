@@ -92,6 +92,11 @@ def information(request):
         newMerit = request.POST["newMerit"]
         employee.merit = newMerit
 
+        addTrained = request.POST["addTrained"]
+        for trained in trainedsAll:
+            if addTrained == trained.name:
+                employee.trained = trained.name
+
         employee.save()
 
         messages.success(request, "Informace byly úspěšně uloženy. :)")
@@ -144,6 +149,7 @@ def deteteEmployee(request):
 
 @login_required(login_url="singIn")
 def deleteTrained(request):
+    traineds = Trained.objects.all()
     if request.method == "POST":
         name_trained = request.POST["name_trained"]
         delete = Trained.objects.get(name = name_trained)
@@ -203,6 +209,10 @@ def newTrained(request):
     })
 
 ##### Zkouším ######
+test_nameTrained = "Roboty KUKA"
+for trained in traineds:
+    if trained.name == test_nameTrained:
+        print(trained)
 
 """
 """
