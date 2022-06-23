@@ -124,11 +124,15 @@ header{
             margin-bottom: 15px;
         }
         table{
+            border-collapse: collapse;
             @include center;
             display: none;
             @include table_form;
             .table_num_card{
                 cursor: pointer;
+            }
+            .table_list_of_employee_td{
+                border: 1px solid black;
             }
             .button_close_list{
                 @include center;
@@ -216,7 +220,40 @@ footer{
     }
 }
 /***** Trained *****/
+.table_employees_traineds{
+    width: 100%;
+    border-collapse: collapse;
+    .table_employees_traineds_td{
+        border: 1px solid black;
+    }
+}
+.add_remove_trained{
+    width: 100%;
+    margin-top: 20px;
+    .add_trained{
+        width: 50%;
+        display: none;
+    }
+    .remove_trained{
+        float: right;
+        text-align: right;
+    }
+}
+
+
+/***** Delete Trained *****/
 .delete_trained_table{
+    margin-top: 20px;
     @include center;
-    
+    border-collapse: collapse;
+    width: 20%;
+    .delete_trained_table_td{
+        border: 1px solid black;
+        cursor: pointer;
+    }
+}
+.delete_trained_form{
+    margin-top: 20px;
+    @include center;
+    text-align: center;
 }

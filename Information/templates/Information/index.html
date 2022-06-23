@@ -23,19 +23,19 @@
             <button class="butt" id="butt_list_of_employee">Otevřít seznam zaměstnanců:</button>
             <table id="table_list_of_employee">
                 <tr>
-                    <td>
+                    <td class="table_list_of_employee_td">
                         Jméno: 
                     </td>
-                    <td>
+                    <td class="table_list_of_employee_td">
                         Číslo karty: 
                     </td>
                 </tr>
                 {% for employee in employees%}
                     <tr>
-                        <td>
+                        <td class="table_list_of_employee_td">
                             {{employee.name}} {{employee.surname}}
                         </td>
-                        <td>
+                        <td class="table_list_of_employee_td">
                             <div id="this_card" class="table_num_card">
                                 {{employee.card}}
                             </div>

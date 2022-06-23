@@ -158,6 +158,7 @@ header .user_list .logOff {
 }
 
 .search_bar .list_of_employees table {
+  border-collapse: collapse;
   margin-left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -184,6 +185,10 @@ header .user_list .logOff {
 
 .search_bar .list_of_employees table .table_num_card {
   cursor: pointer;
+}
+
+.search_bar .list_of_employees table .table_list_of_employee_td {
+  border: 1px solid black;
 }
 
 .search_bar .list_of_employees table .button_close_list {
@@ -299,9 +304,50 @@ footer {
 }
 
 /***** Trained *****/
+.table_employees_traineds {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table_employees_traineds .table_employees_traineds_td {
+  border: 1px solid black;
+}
+
+.add_remove_trained {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.add_remove_trained .add_trained {
+  width: 50%;
+  display: none;
+}
+
+.add_remove_trained .remove_trained {
+  float: right;
+  text-align: right;
+}
+
+/***** Delete Trained *****/
 .delete_trained_table {
+  margin-top: 20px;
   margin-left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  border-collapse: collapse;
+  width: 20%;
+}
+
+.delete_trained_table .delete_trained_table_td {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.delete_trained_form {
+  margin-top: 20px;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */

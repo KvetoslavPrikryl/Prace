@@ -7,8 +7,8 @@
 {% block content %}
     <a href = "/uvod">Zpátky na úvod.</a>
     <h1> Tabulka školení zaměstnanců</h1>
-    <div class="table_employees_traineds">
-        <table>
+    <div>
+        <table class="table_employees_traineds">
             <tr>
                 <th>Název školení:</th>
                 <br>
@@ -20,7 +20,7 @@
                 <tr>
                     {% for key, value in employees_traineds.items %}
                     <tr>
-                        <td>
+                        <td class="table_employees_traineds_td">
                             {% for employee in employees%}
                                 {% if key == employee.card%}
                                     <div>{{employee.name}} {{employee.surname}}</div>
@@ -28,7 +28,9 @@
                             {% endfor %}
                         </td>
                         {% for val in value%}
-                            <td>{{val}}</td>
+                            <td class="table_employees_traineds_td">
+                                {{val}}
+                            </td>
                         {% endfor%}
                     </tr>
                     {% endfor %}

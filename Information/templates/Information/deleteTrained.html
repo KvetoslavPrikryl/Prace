@@ -17,16 +17,20 @@
         </tr>
         {% for trained in trainedsAll%}
             <tr>
-                <td id="trainedsName">{{trained}}</td>
+                <td id="trainedsName" class="delete_trained_table_td">
+                    {{trained}}
+                </td>
             </tr>
         {% endfor %}
     </table>
 
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" id="name_trained" name="name_trained">
-        <button>Vymazat</button>
-    </form>
+    <div class="delete_trained_form">
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" id="name_trained" name="name_trained">
+            <button>Vymazat</button>
+        </form>
+    </div>
     
 {% endblock%}
 

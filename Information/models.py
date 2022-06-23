@@ -19,7 +19,7 @@ class Employee(models.Model):
     card = models.IntegerField()
     merit = models.CharField(max_length=2000, null=True)
     info = models.CharField(max_length=10000, null=True)
-    trained = models.ForeignKey(Trained, on_delete=models.SET_NULL, null=True)
+    trained = models.ManyToManyField(Trained)
 
     def __str__(self):
         return f"{self.name} {self.surname} {self.card} {self.info} {self.merit} {self.trained}"
