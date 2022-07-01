@@ -95,8 +95,8 @@ def information(request):
         addTrained = request.POST["addTrained"]
         for trained in trainedsAll:
             if addTrained == trained.name:
-                employee.trained = trained.name
-
+                employee.trained.add(trained.id)
+                
         employee.save()
 
         messages.success(request, "Informace byly úspěšně uloženy. :)")
@@ -161,7 +161,7 @@ def deleteTrained(request):
     })
 
 @login_required(login_url="singIn")
-def newTrained(request):
+def tableTrained(request):
     traineds = Trained.objects.all()
     employees = Employee.objects.all()
     newTrained = TrainedForm
@@ -209,10 +209,6 @@ def newTrained(request):
     })
 
 ##### Zkouším ######
-test_nameTrained = "Roboty KUKA"
-for trained in traineds:
-    if trained.name == test_nameTrained:
-        print(trained)
 
 """
 """
