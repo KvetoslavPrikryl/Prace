@@ -20,7 +20,6 @@ butt_add_trained.addEventListener("click", function(){
 
 name_trained.forEach(function(trained){ 
     trained.addEventListener("click", function(event){
-        console.log(event)
         add_name = event.target.innerText
         addTrained.value = add_name
     })

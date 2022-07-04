@@ -78,11 +78,11 @@ def information(request):
     addTrained = AddTrainedForm
     trainedsAll = Trained.objects.all()
     employee = Employee.objects.get(card = cardNumber)
-    employeeTraineds = Trained.objects.filter(employee__card = cardNumber)
-    trained = []
+    employeeTraineds = employee.trained.all()
+    traineds = []
 
     for trainedName in employeeTraineds:
-        trained.append(trainedName.name)
+        traineds.append(trainedName.name)
 
     if request.method == "POST":
 
@@ -94,7 +94,9 @@ def information(request):
 
         addTrained = request.POST["addTrained"]
         for trained in trainedsAll:
-            if addTrained == trained.name:
+            if addTrained in traineds:
+                employee.trained.remove(trained)
+            elif addTrained == trained.name:
                 employee.trained.add(trained.id)
                 
         employee.save()
@@ -108,7 +110,7 @@ def information(request):
         "card": employee.card,
         "merit" : employee.merit,
         "comment" : employee.info,
-        "employee_traineds" : trained,
+        "employee_traineds" : traineds,
         "trainedsAll" : trainedsAll,
     })
 
@@ -175,17 +177,17 @@ def tableTrained(request):
     for employee in employees:
         nameTraineds = Trained.objects.filter(employee__card = employee.card)
         employeeTraineds = []
-        cislo = 0
+        number = 0
         for name in nameTraineds:
             name = str(name.name)
-            while cislo < len(TrainedAllName):
-                if name == TrainedAllName[cislo]:
+            while number < len(TrainedAllName):
+                if name == TrainedAllName[number]:
                     employeeTraineds.append(name)
-                    cislo += 1
+                    number += 1
                     break
                 else:
                     employeeTraineds.append("X")
-                    cislo += 1
+                    number += 1
 
         while len(employeeTraineds) < len(TrainedAllName):
             employeeTraineds.append("X")

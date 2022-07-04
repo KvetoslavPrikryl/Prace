@@ -249,6 +249,15 @@ header .user_list .logOff {
   display: none;
 }
 
+.employee_text table .add_trained {
+  display: none;
+}
+
+.employee_text table .add_trained .name_trained {
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
 .trained {
   width: 50%;
 }
