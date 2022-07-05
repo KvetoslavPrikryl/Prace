@@ -63,21 +63,22 @@ def index(request):
     employees = Employee.objects.all()
     cards = employeeCard()
     if request.method == "POST":
-        global cardNumber
         cardNumber = int(request.POST["card"])
         if cardNumber in cards:
-            return HttpResponseRedirect(reverse("info"))
+            employee = Employee.objects.get(card=cardNumber)
+            return HttpResponseRedirect(reverse("info", args=[employee.id]))
         else: 
+            cards.append(cardNumber)
             return HttpResponseRedirect(reverse("new"))
     return render(request, "Information/index.html", {
         "employees" : employees
     })
 
 @login_required(login_url="singIn")
-def information(request): 
+def information(request, id): 
     addTrained = AddTrainedForm
     trainedsAll = Trained.objects.all()
-    employee = Employee.objects.get(card = cardNumber)
+    employee = Employee.objects.get(id = id)
     employeeTraineds = employee.trained.all()
     traineds = []
 
@@ -86,23 +87,26 @@ def information(request):
 
     if request.method == "POST":
 
-        newComment = request.POST["newComment"]
-        employee.info = newComment
+        if "newComment" in request.POST:
+            newComment = request.POST["newComment"]
+            employee.info = newComment
 
-        newMerit = request.POST["newMerit"]
-        employee.merit = newMerit
+        if "newMerit" in request.POST:
+            newMerit = request.POST["newMerit"]
+            employee.merit = newMerit
 
-        addTrained = request.POST["addTrained"]
-        for trained in trainedsAll:
+        if "addTrained" in request.POST:
+            addTrained = request.POST["addTrained"]
+            trained = Trained.objects.get(name = addTrained)
             if addTrained in traineds:
-                employee.trained.remove(trained)
-            elif addTrained == trained.name:
+                employee.trained.remove(trained.id)
+            else:
                 employee.trained.add(trained.id)
                 
         employee.save()
 
         messages.success(request, "Informace byly úspěšně uloženy. :)")
-        return redirect("info")
+        return redirect(reverse("info", args=[employee.id]))
 
     return render(request, "Information/Employee.html", {
         "name" : employee.name,
@@ -116,10 +120,13 @@ def information(request):
 
 @login_required(login_url="singIn")
 def newEmployee(request):
+
+    cards = employeeCard()
+
     initial_data = {
         "name": "",
         "surname": "",
-        "card": cardNumber
+        "card": "",
     }
     newEmployee = EmployeeForm(initial=initial_data)
     if request.method == "POST":
@@ -127,21 +134,18 @@ def newEmployee(request):
         if form.is_valid:
             form.save()
             messages.success(request, "Zaměstnanec byl úspěčně přidán do databáze. :)")
-            cards = employeeCard()
-            if cardNumber in cards:
-                return HttpResponseRedirect(reverse("info"))
+            return HttpResponseRedirect(reverse("info"))
             
         else:
             form = EmployeeForm
 
     return render(request, "Information/newEmployee.html", {
         "newEmployee": newEmployee,
-        "cardNumber" : cardNumber,
     })
 
 @login_required(login_url="singIn")
-def deteteEmployee(request):
-    delete_employee = Employee.objects.get(card = cardNumber)
+def deteteEmployee(request, id):
+    delete_employee = Employee.objects.get(id = id)
     if request.method == "POST":
         delete_employee.delete()
         return HttpResponseRedirect(reverse("index"))
@@ -176,19 +180,15 @@ def tableTrained(request):
 
     for employee in employees:
         nameTraineds = Trained.objects.filter(employee__card = employee.card)
+        nameTrainedsReallyOnlyNames = []
+        for trE in nameTraineds:
+            nameTrainedsReallyOnlyNames.append(trE.name)
         employeeTraineds = []
-        number = 0
-        for name in nameTraineds:
-            name = str(name.name)
-            while number < len(TrainedAllName):
-                if name == TrainedAllName[number]:
-                    employeeTraineds.append(name)
-                    number += 1
-                    break
-                else:
-                    employeeTraineds.append("X")
-                    number += 1
-
+        for name in TrainedAllName:
+            if name in nameTrainedsReallyOnlyNames:
+                employeeTraineds.append(name)
+            else:
+                employeeTraineds.append("X")
         while len(employeeTraineds) < len(TrainedAllName):
             employeeTraineds.append("X")
 

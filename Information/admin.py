@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Employee, Trained
 
 class EmployeesAdmin(admin.ModelAdmin):
-    list_display = ("name", "surname", "card", "merit","info")
+    list_display = ("id", "name", "surname", "card", "merit","info")
 
 
 class TrainedAdmin(admin.ModelAdmin):
