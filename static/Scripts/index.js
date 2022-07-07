@@ -22,7 +22,7 @@ function on_of(on, off) {
     on.style.display = "block"
     off.style.display = "none"
 }
-// Zkoušíme //
+
 const filters = {
     employee_card: ""
 }
