@@ -12,8 +12,7 @@
     <h1>Informace o zaměstnanci.</h1>
 
     <div class="employee">
-        <h2 class="employee_name_card">Jméno: {{name}} {{surname}}</h2>  
-        <h2 class="employee_name_card">Číslo karty: {{card}}</h2>
+        <h2 class="employee_name">Jméno: {{name}} {{surname}}</h2>  
     </div>
 
     <hr>
@@ -23,19 +22,13 @@
             <tr>
                 <th>Poznámky k zaměstnanci:</th>
                 <th>Klady zaměstnance:</th>
-                <th>Absolvovaná školení:</th>
             </tr>
             <tr style ="width:100%;">
-                <td style= "width: 40%;">
+                <td style= "width: 50%;">
                     {{comment}}
                 </td>
-                <td style= "width: 40%;">
+                <td style= "width: 50%;">
                     {{merit}}
-                </td>
-                <td style= "width: 20%;">
-                    {% for trained in employee_traineds %}
-                        {{trained}}<br>
-                    {% endfor %}
                 </td>
             </tr>
             <tr>
@@ -44,9 +37,6 @@
                 </td>
                 <td>
                     <button class="edit_merit" id="butt_edit_merit">Upravit</button>
-                </td>
-                <td>
-                    <button class="aadTrained" id="butt_add_trained">Upravit</button>
                 </td>
             </tr>
             <form action="" method="POST" class="comment_form">
@@ -64,15 +54,6 @@
                             <textarea type="text" id="newMerit" name="newMerit" rows="10" cols="50">{{merit}}</textarea>    
                         </div>
                     </td>
-                    <td>
-                        <div class="add_trained" id="add_trained">
-                            {% for trained in trainedsAll %}
-                               <div id="name_trained" class="name_trained">{{trained}}</div>
-                            {% endfor %}
-                            <label for="addTrained">Přidat školení:</label>
-                            <input type="text" name="addTrained" id="addTrained">
-                        </div>
-                    </td>
                 </tr>
                 <tr>
                     <td colspan="3">
@@ -84,6 +65,35 @@
     </div>
 
     <hr>
+
+    <table>
+        <tr>
+            <th>Absolvovaná školení:</th>
+        </tr>
+        <tr>
+            <td>
+                {% for trained in employee_traineds %}
+                    {{trained}}<br>
+                {% endfor %}
+                <button class="aadTrained" id="butt_add_trained">Upravit</button>
+            </td>
+        </tr>
+        <tr>
+            <form action="" method="POST" class="comment_form">
+                {% csrf_token %}
+                <td>
+                    <div class="add_trained" id="add_trained">
+                        {% for trained in trainedsAll %}
+                            <div id="name_trained" class="name_trained">{{trained}}</div>
+                        {% endfor %}
+                        <label for="addTrained">Přidat školení:</label>
+                        <input type="text" name="addTrained" id="addTrained">
+                    </div>
+                    <button class="butt send_edits">Odeslat úpravy</button>
+                </td>
+            </from>
+        </tr>
+    </table>
 
     <div class="delete_employee">
         <a href="/vymazat_zamestnance">Vymazat zaměstnance</a>

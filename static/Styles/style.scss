@@ -11,6 +11,9 @@ body{
     background-repeat: no-repeat;
     background-size: 100%;
     background-size: cover;
+    .contents{
+        margin: 0 5%;
+    }
 }
 a{
     text-decoration: none;
@@ -75,9 +78,6 @@ header{
     }
 }
 
-.contents{
-    margin: 0 5%;
-}
 /***** SING IN *****/
 .logIn{
     margin: 7% auto;
@@ -99,8 +99,15 @@ header{
     }
 }
 /***** INDEX *****/
+
 .search_bar{
     display: flex;
+    @media only screen and (max-width: 1150px) {
+        display: block;
+        .search_engine{
+            height: none;
+        }
+    }
     .search_engine{
         margin: 5% auto;
         border: 1px solid black;
@@ -150,8 +157,8 @@ header{
     width: 700px;
     display: flex;
     margin: 3% auto;
-    .employee_name_card{
-        width: 50%;
+    .employee_name{
+        margin: 0 auto;
         text-align: center;
     }
 }
@@ -177,13 +184,13 @@ header{
         .send_edits{
             display: none;
         }
-        .add_trained{
-            display: none;
-            .name_trained{
-                margin-bottom: 5px;
-                cursor: pointer;
-            }
-        }
+    }
+}
+.add_trained{
+    display: none;
+    .name_trained{
+        margin-bottom: 5px;
+        cursor: pointer;
     }
 }
 .trained{

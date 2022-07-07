@@ -14,6 +14,10 @@ body {
   background-size: cover;
 }
 
+body .contents {
+  margin: 0 5%;
+}
+
 a {
   text-decoration: none;
 }
@@ -92,10 +96,6 @@ header .user_list .logOff {
   margin-top: 5%;
 }
 
-.contents {
-  margin: 0 5%;
-}
-
 /***** SING IN *****/
 .logIn {
   margin: 7% auto;
@@ -126,6 +126,15 @@ header .user_list .logOff {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media only screen and (max-width: 1150px) {
+  .search_bar {
+    display: block;
+  }
+  .search_bar .search_engine {
+    height: none;
+  }
 }
 
 .search_bar .search_engine {
@@ -212,8 +221,8 @@ header .user_list .logOff {
   margin: 3% auto;
 }
 
-.employee .employee_name_card {
-  width: 50%;
+.employee .employee_name {
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -249,11 +258,11 @@ header .user_list .logOff {
   display: none;
 }
 
-.employee_text table .add_trained {
+.add_trained {
   display: none;
 }
 
-.employee_text table .add_trained .name_trained {
+.add_trained .name_trained {
   margin-bottom: 5px;
   cursor: pointer;
 }
