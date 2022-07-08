@@ -137,6 +137,19 @@ header .user_list .logOff {
   }
 }
 
+@media only screen and (max-width: 450px) {
+  .search_bar .search_engine {
+    width: 100%;
+  }
+  .search_bar .search_engine button {
+    margin-top: 20px;
+  }
+  .search_bar .list_of_employees {
+    width: 100%;
+    height: none;
+  }
+}
+
 .search_bar .search_engine {
   margin: 5% auto;
   border: 1px solid black;
@@ -168,10 +181,21 @@ header .user_list .logOff {
 
 .search_bar .list_of_employees table {
   border-collapse: collapse;
-  margin-left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
   display: none;
+}
+
+@media only screen and (max-width: 450px) {
+  .search_bar .list_of_employees table {
+    margin-left: 15%;
+  }
+}
+
+@media only screen and (min-width: 450px) {
+  .search_bar .list_of_employees table {
+    margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
 }
 
 .search_bar .list_of_employees table input {
@@ -189,7 +213,6 @@ header .user_list .logOff {
   padding: 7px;
   -webkit-box-shadow: 1px 1px 5px black;
           box-shadow: 1px 1px 5px black;
-  margin-left: 10px;
 }
 
 .search_bar .list_of_employees table .table_num_card {
@@ -201,10 +224,11 @@ header .user_list .logOff {
 }
 
 .search_bar .list_of_employees table .button_close_list {
+  margin-top: 10px;
   margin-left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  width: 30%;
+  width: 100%;
 }
 
 /***** EMPLOYEE *****/
@@ -214,7 +238,7 @@ header .user_list .logOff {
 }
 
 .employee {
-  width: 700px;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -240,10 +264,16 @@ header .user_list .logOff {
 
 .employee_text table .edit_comment {
   display: block;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .employee_text table .edit_merit {
   display: block;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .employee_text table .new_comment {
@@ -254,7 +284,7 @@ header .user_list .logOff {
   display: none;
 }
 
-.employee_text table .send_edits {
+.send_edits {
   display: none;
 }
 
