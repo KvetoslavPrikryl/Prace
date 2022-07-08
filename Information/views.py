@@ -70,7 +70,11 @@ def index(request):
             employee = Employee.objects.get(card=cardNumber)
             return HttpResponseRedirect(reverse("info", args=[employee.id]))
         else: 
+<<<<<<< HEAD
             newEmployeeCard.append(cardNumber)
+=======
+            cards.append(cardNumber)
+>>>>>>> 924cde53894bcbc0953e56830afe33fa751677b1
             return HttpResponseRedirect(reverse("new"))
     return render(request, "Information/index.html", {
         "employees" : employees
@@ -93,10 +97,21 @@ def information(request, id):
             newComment = request.POST["newComment"]
             employee.info = newComment
 
+<<<<<<< HEAD
         if "newMerit" in request.POST:
             newMerit = request.POST["newMerit"]
             employee.merit = newMerit
 
+=======
+        if "newComment" in request.POST:
+            newComment = request.POST["newComment"]
+            employee.info = newComment
+
+        if "newMerit" in request.POST:
+            newMerit = request.POST["newMerit"]
+            employee.merit = newMerit
+
+>>>>>>> 924cde53894bcbc0953e56830afe33fa751677b1
         if "addTrained" in request.POST:
             addTrained = request.POST["addTrained"]
             trained = Trained.objects.get(name = addTrained)
@@ -124,12 +139,20 @@ def information(request, id):
 @login_required(login_url="singIn")
 def newEmployee(request):
 
+<<<<<<< HEAD
     card = newEmployeeCard[0]
+=======
+    cards = employeeCard()
+>>>>>>> 924cde53894bcbc0953e56830afe33fa751677b1
 
     initial_data = {
         "name": "",
         "surname": "",
+<<<<<<< HEAD
         "card": card,
+=======
+        "card": "",
+>>>>>>> 924cde53894bcbc0953e56830afe33fa751677b1
     }
     newEmployee = EmployeeForm(initial=initial_data)
     if request.method == "POST":
@@ -138,6 +161,10 @@ def newEmployee(request):
             form.save()
             messages.success(request, "Zaměstnanec byl úspěčně přidán do databáze. :)")
             return HttpResponseRedirect(reverse("info"))
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 924cde53894bcbc0953e56830afe33fa751677b1
         else:
             form = EmployeeForm
 
