@@ -124,9 +124,7 @@ def information(request, id):
 @login_required(login_url="singIn")
 def newEmployee(request):
 
-    card = 0
-    for eCard in newEmployeeCard:
-        card = eCard
+    card = newEmployeeCard[0]
 
     initial_data = {
         "name": "",
