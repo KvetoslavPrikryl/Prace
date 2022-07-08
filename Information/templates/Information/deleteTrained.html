@@ -7,13 +7,13 @@
 
 {% block content %}
 
-    <a href = "/uvod">Zpátky na úvod.</a>
+    <a href = "/skoleni">Zpátky na tabulku školení.</a>
 
     <h1>Vymazat školení</h1> 
     
     <table class="delete_trained_table">
         <tr>
-            <th>Název školení</th>
+            <th class="delete_trained_table_th">Název školení</th>
         </tr>
         {% for trained in trainedsAll%}
             <tr>

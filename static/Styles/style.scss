@@ -27,6 +27,7 @@ h1{
     padding-top: 2%;
     text-align: center;
     color: rgb(72, 72, 240);
+    margin-bottom: 20px;
 }
 h2{
     margin-bottom: 1%;
@@ -280,14 +281,21 @@ footer{
     margin-top: 20px;
     @include center;
     border-collapse: collapse;
-    width: 20%;
+    .delete_trained_table_th{
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
     .delete_trained_table_td{
         border: 1px solid black;
         cursor: pointer;
+        padding: 10px 40px;
     }
 }
 .delete_trained_form{
     margin-top: 20px;
     @include center;
     text-align: center;
+    input{
+        margin-bottom: 20px;
+    }
 }

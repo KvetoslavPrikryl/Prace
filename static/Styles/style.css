@@ -32,6 +32,7 @@ h1 {
   padding-top: 2%;
   text-align: center;
   color: #4848f0;
+  margin-bottom: 20px;
 }
 
 h2 {
@@ -213,6 +214,7 @@ header .user_list .logOff {
   padding: 7px;
   -webkit-box-shadow: 1px 1px 5px black;
           box-shadow: 1px 1px 5px black;
+  margin-left: 10px;
 }
 
 .search_bar .list_of_employees table .table_num_card {
@@ -383,12 +385,17 @@ footer {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   border-collapse: collapse;
-  width: 20%;
+}
+
+.delete_trained_table .delete_trained_table_th {
+  font-size: 20px;
+  padding-bottom: 10px;
 }
 
 .delete_trained_table .delete_trained_table_td {
   border: 1px solid black;
   cursor: pointer;
+  padding: 10px 40px;
 }
 
 .delete_trained_form {
@@ -397,5 +404,9 @@ footer {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   text-align: center;
+}
+
+.delete_trained_form input {
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=style.css.map */

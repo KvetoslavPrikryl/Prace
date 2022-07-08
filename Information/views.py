@@ -116,6 +116,7 @@ def information(request, id):
         "card": employee.card,
         "merit" : employee.merit,
         "comment" : employee.info,
+        "employee_id" : employee.id,
         "employee_traineds" : traineds,
         "trainedsAll" : trainedsAll,
     })
