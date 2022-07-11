@@ -47,9 +47,9 @@
             <form action="" method="POST">
                 {% csrf_token %}
                 {{newTrained.label_tag}}
-                {{newTrained}}
+                <div class="add_trained_input">{{newTrained}}</div>
                 {{newTrained.errors}}
-                <button>Přidat školení</button>
+                <button class="add_trained_button">Přidat školení</button>
             </form>
         </div>
 

@@ -110,6 +110,13 @@ header .user_list .logOff {
   border-radius: 5px;
 }
 
+@media only screen and (max-width: 450px) {
+  .logIn form {
+    width: 100%;
+    padding: 5%;
+  }
+}
+
 .logIn form input {
   border: none;
   border-bottom: 1px solid black;
@@ -127,6 +134,16 @@ header .user_list .logOff {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media only screen and (min-width: 1151px) {
+  .search_bar .search_engine {
+    height: 100px;
+    width: 500px;
+  }
+  .search_bar .list_of_employees {
+    width: 500px;
+  }
 }
 
 @media only screen and (max-width: 1150px) {
@@ -154,8 +171,6 @@ header .user_list .logOff {
 .search_bar .search_engine {
   margin: 5% auto;
   border: 1px solid black;
-  width: 500px;
-  height: 100px;
   text-align: center;
   padding: 10px;
   -webkit-box-shadow: 2px 2px 7px black;
@@ -168,7 +183,6 @@ header .user_list .logOff {
 
 .search_bar .list_of_employees {
   margin: 5% auto;
-  width: 500px;
   border: 1px solid black;
   padding: 15px;
   -webkit-box-shadow: -2px -2px 5px black;
@@ -290,11 +304,17 @@ header .user_list .logOff {
   display: none;
 }
 
-.add_trained {
+.table_trained {
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.table_trained .add_trained_employee {
   display: none;
 }
 
-.add_trained .name_trained {
+.table_trained .add_trained_employee .name_trained {
   margin-bottom: 5px;
   cursor: pointer;
 }
@@ -371,6 +391,19 @@ footer {
 .add_remove_trained .add_trained {
   width: 50%;
   display: none;
+}
+
+@media only screen and (max-width: 450px) {
+  .add_remove_trained .add_trained .add_trained_input {
+    margin-top: 10px;
+  }
+  .add_remove_trained .add_trained .add_trained_button {
+    margin-top: 20px;
+    margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 100%;
+  }
 }
 
 .add_remove_trained .remove_trained {

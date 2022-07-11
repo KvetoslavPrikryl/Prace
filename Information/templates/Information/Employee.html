@@ -67,7 +67,7 @@
                     
     <hr>
 
-    <table>
+    <table class="table_trained">
         <tr>
             <th>Absolvovaná školení:</th>
         </tr>
@@ -80,24 +80,30 @@
         </tr>
         <tr>
             <td>
-                <button class="aadTrained" id="butt_add_trained">Upravit</button>
+                <button id="butt_add_trained">Upravit</button>
             </td>
         </tr>
-        <tr>
-            <form action="" method="POST" class="comment_form">
-                {% csrf_token %}
-                <td>
-                    <div class="add_trained" id="add_trained">
+        <div class="add_trained_employee" id="add_trained">
+            <tr>
+                <th>
+                    Název školení
+                </th>
+            </tr>
+            <tr>
+                <form action="" method="POST" class="comment_form">
+                    {% csrf_token %}
+                    <td>
                         {% for trained in trainedsAll %}
                             <div id="name_trained" class="name_trained">{{trained}}</div>
                         {% endfor %}
                         <label for="addTrained">Přidat školení:</label>
                         <input type="text" name="addTrained" id="addTrained">
-                    </div>
-                    <button class="butt send_edits">Odeslat úpravy</button>
-                </td>
-            </from>
-        </tr>
+                        <button class="butt send_edits" id="send_edits">Odeslat úpravy</button>
+                    </td>
+                </from>
+            </tr>
+        </div>
+        
     </table>
 
     <div class="delete_employee">

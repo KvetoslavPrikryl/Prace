@@ -83,6 +83,10 @@ header{
 .logIn{
     margin: 7% auto;
     form{
+        @media only screen and (max-width: 450px){
+            width: 100%;
+            padding: 5%;
+        }
         border: 1px solid black;
         width: 40%;
         margin: auto;
@@ -103,6 +107,15 @@ header{
 
 .search_bar{
     display: flex;
+    @media only screen and (min-width: 1151px){
+        .search_engine{
+            height: 100px;  
+            width: 500px;
+        }
+        .list_of_employees{
+            width: 500px;
+        }
+    }
     @media only screen and (max-width: 1150px) {
         display: block;
         .search_engine{
@@ -124,8 +137,6 @@ header{
     .search_engine{
         margin: 5% auto;
         border: 1px solid black;
-        width: 500px;
-        height: 100px;
         text-align: center;
         padding: 10px;
         box-shadow: 2px 2px 7px black ;
@@ -135,7 +146,6 @@ header{
     }
     .list_of_employees{
         margin: 5% auto;
-        width:500px;
         border: 1px solid black;
         padding: 15px;
         box-shadow: -2px -2px 5px black;
@@ -207,11 +217,14 @@ header{
 .send_edits{
     display: none;
 }
-.add_trained{
-    display: none;
-    .name_trained{
-        margin-bottom: 5px;
-        cursor: pointer;
+.table_trained{
+    @include center;
+    .add_trained_employee{
+        display: none;
+        .name_trained{
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
     }
 }
 .trained{
@@ -266,6 +279,16 @@ footer{
     width: 100%;
     margin-top: 20px;
     .add_trained{
+        @media only screen and (max-width: 450px){
+            .add_trained_input{
+                margin-top: 10px;
+            }
+            .add_trained_button{
+                margin-top: 20px;
+                @include center;
+                width: 100%;
+            }
+        }
         width: 50%;
         display: none;
     }

@@ -70,7 +70,7 @@ def index(request):
             employee = Employee.objects.get(card=cardNumber)
             return HttpResponseRedirect(reverse("info", args=[employee.id]))
         else: 
-            cards.append(cardNumber)
+            newEmployeeCard.append(cardNumber)
             return HttpResponseRedirect(reverse("new"))
     return render(request, "Information/index.html", {
         "employees" : employees
@@ -124,7 +124,7 @@ def information(request, id):
 @login_required(login_url="singIn")
 def newEmployee(request):
 
-    card = newEmployeeCard[0]
+    card = newEmployeeCard[-1]
 
     initial_data = {
         "name": "",
